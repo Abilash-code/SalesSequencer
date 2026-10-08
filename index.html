@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="ingestion-form">
+        <label>
+            Source Channel :
+            <select name="source">
+                <option>Web Form</option>
+                <option>Facebook Ad</option>
+                <option>Google Ad</option>
+            </select>
+        </label>
+        <br>
+        <br>
+        <label>
+            First Name : 
+            <input name="firstname">
+        </label>
+        <br>
+        <br>
+        <label>
+            Last Name : 
+            <input name="lastname">
+        </label>
+        <br>
+        <br>
+        <label>
+            Email : 
+            <input type="email" name="email">
+        </label>
+        <br>
+        <br>
+        <label>
+            Phone ( Whatsapp ) :
+            <input type="tel" name="phonenumber">
+        </label>
+        <br>
+        <br>
+        <label>
+            Company : 
+            <input name="companyname">
+        </label>
+        <br>
+        <br>
+        <label>
+            Region : 
+            <select name="geographicalsource">
+                <option>APAC</option>
+                <option>EMEA</option>
+                <option>Americas</option>
+            </select>
+        </label>
+        <br>
+        <br>
+        <label>
+            Interest Level :
+            <select name="interest">
+                <option>Hot</option>
+                <option>Warm</option>
+                <option>Cold</option>
+            </select>
+        </label>
+        <br>
+        <br>
+        <button type="submit">
+            Submit
+        </button>
+    </form>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <p id="no-leads" style="display: none;">No leads Found</p>
+    <table id="leads-table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>full_name</th>
+                <th>company_name</th>
+                <th>email_address</th>
+                <th>phone</th>
+                <th>source</th>
+                <th>region</th>
+                <th>interest</th>
+                <th>pipeline</th>
+                <th>rep</th>
+                <th>time</th>
+            </tr>
+        </thead>
+        <tbody id="leads-table-body"></tbody>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>
