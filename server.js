@@ -64,9 +64,20 @@ app.post('/',(req,res) => {
 
 app.get('/leads',(req,res) => {
     try{
-        const stmt = db.prepare(`SELECT id,Full_Name,Company_Name,Email_Address,Phone,Source_Channel,Region,Interest,Intent_Score,Pipeline_Stage,Assigned_Rep,Ingestion_Timestamp`)
+        const stmt = db.prepare(`SELECT id, Full_Name, Company_Name, Email_Address, Phone, Source_Channel, Region, Interest, Intent_Score, Pipeline_Stage, Assigned_Rep, Ingestion_Timestamp FROM leads`)
         const rows = stmt.all();
         res.json(rows);
+    }catch(err){
+        return(res.status(500).send(err.message));
+    }
+})
+
+app.patch('/change/:id',(req,res) => {
+    try{
+        const {id} = req.params;
+        const stmt = db.prepare(`UPDATE leads SET Pipeline_Stage = 'SEQUENCED' WHERE id = ?`);
+        stmt.run(id)
+        return(res.status(200));
     }catch(err){
         return(res.status(500).send(err.message));
     }
